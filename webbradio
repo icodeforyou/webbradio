@@ -1,0 +1,32 @@
+#!/bin/bash
+
+PLAYLISTS[0]="http://sverigesradio.se/topsy/direkt/164-hi-mp3.pls"
+PLAYLISTS[1]="http://sverigesradio.se/topsy/direkt/2842-hi-mp3.pls"
+PLAYLISTS[2]="http://194.16.21.227/nrj_se_mp3.m3u"
+PLAYLISTS[3]="http://stream.thsradio.se:8000/rocket_hi.mp3.m3u"
+PLAYLISTS[4]="http://stream-ice.mtgradio.com:8080/stat_rix_fm.m3u"
+PLAYLISTS[5]="http://194.16.21.227/mix_se_mp3.m3u"
+PLAYLISTS[6]="http://stream-ice.mtgradio.com:8080/stat_bandit.m3u"
+
+
+LABELS[0]="P3"
+LABELS[1]="Radio Megapol"
+LABELS[2]="NRJ"
+LABELS[3]="Rocket FM 95.3"
+LABELS[4]="Rix FM"
+LABELS[5]="Mix Megapol"
+LABELS[6]="Bandit Rock 106.3"
+
+
+echo "Choose one of the stations and press [ENTER]:"
+for i in "${!LABELS[@]}"
+do
+   echo "  $i -- (${LABELS[$i]})"
+   # or do whatever with individual element of the array
+done
+
+read number
+mplayer -playlist ${PLAYLISTS[${number}]}
+
+ 
+exit 0
